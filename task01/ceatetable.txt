@@ -1,0 +1,10 @@
+
+CREATE TABLE [dbo].[tblCustomer](
+	[CustomerCode] [nvarchar](50) NULL,
+	[CustomerName] [varchar](50) NULL,
+	[CustomerAmount] [varchar](50) NULL,
+	[SalesDate] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+
+

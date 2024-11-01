@@ -1,0 +1,4 @@
+CustomerCode,CustomerName,CustomerAmount,SalesDate
+1009,Rajnish,400,1/1/2013
+1010,Sukesh,500,3/3/2014
+1011,Pradip,700,5/10/2014
