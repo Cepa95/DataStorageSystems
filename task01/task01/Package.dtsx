@@ -11,11 +11,22 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{8124B815-2948-443B-9113-53E5F0B48116}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{AF5B8745-25FF-4A20-9CE7-96B02D3C17A1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[arhiva]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A9359547-AACE-4AE7-AAD4-775C255AA2A1}"
+      DTS:ObjectName="arhiva">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\arhiva" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[Conversion error file]"
       DTS:CreationName="FLATFILE"
@@ -29,7 +40,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1250"
-          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\errorconversion.txt">
+          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\errori\errorconversion.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -38,7 +49,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerCode"
-              DTS:DTSID="{B2D347A4-4A8C-4B44-B19F-4E85690EC4DD}"
+              DTS:DTSID="{005AACB2-3779-4A71-891C-FA2F4C00162B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -47,7 +58,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerName"
-              DTS:DTSID="{B38B3B8B-0FC2-4122-81B9-E9F7CB074D45}"
+              DTS:DTSID="{0C0DEFC0-6BDB-482D-B7F8-5F0024598DB1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -56,7 +67,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerAmount"
-              DTS:DTSID="{2A78E55C-1FC5-4D24-B7D1-B280488C5CD9}"
+              DTS:DTSID="{726B713F-8EDC-4E50-AD2F-6B09DF312B9F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -65,7 +76,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SalesDate"
-              DTS:DTSID="{8C8EE8F7-C5E1-4594-87E8-CB1031BB38E0}"
+              DTS:DTSID="{89CC0211-1216-48D6-BA26-2A287C01EBE8}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -73,7 +84,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorCode"
-              DTS:DTSID="{2288ECE4-7296-4C58-9405-8DBC161CAFE0}"
+              DTS:DTSID="{666C15CF-519E-40B2-A594-B60F38A9DE9F}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -81,7 +92,7 @@
               DTS:DataType="3"
               DTS:TextQualified="True"
               DTS:ObjectName="ErrorColumn"
-              DTS:DTSID="{C1B3ED58-F0B2-4288-A12A-9141713105C8}"
+              DTS:DTSID="{A0070A0F-A842-400D-9BE9-6D6475082F9F}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -111,7 +122,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1250"
-          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\error.txt">
+          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\errori\error.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -120,7 +131,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerCode"
-              DTS:DTSID="{C7699F24-D8F1-406D-B11A-6201D436C54E}"
+              DTS:DTSID="{CFC66A81-5BE2-4515-8CC7-FAE806C6F4C0}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -129,7 +140,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerName"
-              DTS:DTSID="{58A0C8B5-6844-4470-A0D7-1CA054EEAC4C}"
+              DTS:DTSID="{426A665F-4427-492B-8DCF-C26A32582F8C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -138,7 +149,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerAmount"
-              DTS:DTSID="{AADFAF10-5A2C-4F4D-AB23-D20680654D27}"
+              DTS:DTSID="{63E373BF-16D6-4E48-9E69-924B0AB7463B}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -147,7 +158,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="SalesDate"
-              DTS:DTSID="{CDEA5A80-6272-4205-BA6D-ED495586C026}"
+              DTS:DTSID="{1DEFDA31-FA77-4091-B742-B9236534C24C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -155,10 +166,31 @@
               DTS:DataType="6"
               DTS:TextQualified="True"
               DTS:ObjectName="CustomerAmountCY"
-              DTS:DTSID="{7E7DB0CF-5FC2-467D-BD79-637C7028434B}"
+              DTS:DTSID="{8BABF462-E5C6-4621-AB60-4C4D8E14D732}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[error.txt]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{BD829452-7458-4342-8ABA-DEF50DE66819}"
+      DTS:ObjectName="error.txt">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\error.txt" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[errori]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{F408D273-437B-4A18-AB4A-3D8D9800A611}"
+      DTS:ObjectName="errori">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\errori" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -167,7 +199,7 @@
       DTS:DTSID="{DBFF3DE9-9FF5-45E2-93A6-832292CB2028}"
       DTS:ObjectName="Flat File Connection Manager 1">
       <DTS:PropertyExpression
-        DTS:Name="FileUsageType">0</DTS:PropertyExpression>
+        DTS:Name="ConnectionString">@[User::FullFilePath]</DTS:PropertyExpression>
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:Format="Delimited"
@@ -177,7 +209,7 @@
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
           DTS:CodePage="1250"
-          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\Customer1.txt">
+          DTS:ConnectionString="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\Customers\Customer1.txt">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -239,8 +271,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="FullFilePath">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
+        DTS:DataType="8">C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\Customers\Customer1.txt</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -255,7 +286,11 @@
       DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
-      <DTS:ObjectData />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteDirectoryContent"
+          TaskSourcePath="{F408D273-437B-4A18-AB4A-3D8D9800A611}" />
+      </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Foreach Loop Container"
@@ -272,7 +307,7 @@
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\bulkfiles" />
+              Folder="C:\Users\Josip Čeprnić\Desktop\DataStorageSystems\task01\Customers" />
             <FEFEProperty
               FileSpec="*.*" />
             <FEFEProperty
@@ -1112,7 +1147,14 @@
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
-          <DTS:ObjectData />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::FullFilePath"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="arhiva" />
+          </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
       <DTS:PrecedenceConstraints>
@@ -1128,8 +1170,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{B6AF9537-6E43-4749-B7C7-D39199AEC1E1}"
-          DTS:ObjectName="{B6AF9537-6E43-4749-B7C7-D39199AEC1E1}"
+          DTS:DTSID="{86701778-5C18-4619-A4FB-6EAD545277EE}"
+          DTS:ObjectName="{86701778-5C18-4619-A4FB-6EAD545277EE}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FullFilePath" />
       </DTS:ForEachVariableMappings>
@@ -1158,39 +1200,43 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Foreach Loop Container\MoveFile to Archives"
-          TopLeft="197.571429451814,95.4588233672006" />
+          Size="226.4,41.6"
+          Id="Package\Delete all files from error folder"
+          TopLeft="20.0000000425748,16.0588235153356" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\Foreach Loop Container\Load CSV (single)"
-          TopLeft="31.8571433847658,14.3999999088396" />
+          TopLeft="31.1428576689596,12.8705881454743" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Foreach Loop Container\MoveFile to Archives"
+          TopLeft="197.571429451814,95.4588233672006" />
         <EdgeLayout
           Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
-          TopLeft="112.657143384766,55.9999999088396">
+          TopLeft="111.94285766896,54.4705881454743">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="172.114286067048,39.458823458361"
+              EndConnector="172.828571782854,40.9882352217263"
               Start="0,0"
-              End="172.114286067048,31.958823458361">
+              End="172.828571782854,33.4882352217263">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.7294117291805" />
+                    End="0,16.4941176108631" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.7294117291805"
-                    Point2="0,19.7294117291805"
-                    Point3="4,19.7294117291805" />
+                    Point1="0,16.4941176108631"
+                    Point2="0,20.4941176108631"
+                    Point3="4,20.4941176108631" />
                   <mssgle:LineSegment
-                    End="168.114286067048,19.7294117291805" />
+                    End="168.828571782854,20.4941176108631" />
                   <mssgle:CubicBezierSegment
-                    Point1="168.114286067048,19.7294117291805"
-                    Point2="172.114286067048,19.7294117291805"
-                    Point3="172.114286067048,23.7294117291805" />
+                    Point1="168.828571782854,20.4941176108631"
+                    Point2="172.828571782854,20.4941176108631"
+                    Point3="172.828571782854,24.4941176108631" />
                   <mssgle:LineSegment
-                    End="172.114286067048,31.958823458361" />
+                    End="172.828571782854,33.4882352217263" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1206,30 +1252,26 @@
           Size="400,235.2"
           Id="Package\Foreach Loop Container"
           TopLeft="261.428571985084,75.705882286582" />
-        <NodeLayout
-          Size="226.4,41.6"
-          Id="Package\Delete all files from error folder"
-          TopLeft="20.714285758381,17.5882352787009" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="247.114285758381,38.3882352787009">
+          TopLeft="246.400000042575,36.8588235153356">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="214.314286226703,37.3176470078811"
+              EndConnector="215.028571942509,38.8470587712464"
               Start="0,0"
-              End="214.314286226703,29.8176470078811">
+              End="215.028571942509,31.3470587712464">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="210.314286226703,0" />
+                    End="211.028571942509,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="210.314286226703,0"
-                    Point2="214.314286226703,0"
-                    Point3="214.314286226703,4" />
+                    Point1="211.028571942509,0"
+                    Point2="215.028571942509,0"
+                    Point3="215.028571942509,4" />
                   <mssgle:LineSegment
-                    End="214.314286226703,29.8176470078811" />
+                    End="215.028571942509,31.3470587712464" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1246,6 +1288,10 @@
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="144.8,41.6"
+          Id="Package\Foreach Loop Container\Load CSV (single)\ReadFromCSV"
+          TopLeft="53.571428685468,16.0588235153357" />
         <NodeLayout
           Size="147.2,41.6"
           Id="Package\Foreach Loop Container\Load CSV (single)\Customer data"
@@ -1266,10 +1312,6 @@
           Size="134.4,41.6"
           Id="Package\Foreach Loop Container\Load CSV (single)\Capital case"
           TopLeft="213.571429026065,50.4705881910547" />
-        <NodeLayout
-          Size="144.8,41.6"
-          Id="Package\Foreach Loop Container\Load CSV (single)\ReadFromCSV"
-          TopLeft="53.571428685468,16.0588235153357" />
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Foreach Loop Container\Load CSV (single)\Error destination"
