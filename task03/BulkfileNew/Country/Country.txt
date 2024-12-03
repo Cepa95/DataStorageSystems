@@ -1,5 +1,4 @@
 CountryId,CountryName
 1,India
-2,Nepal2
-3,USA1
-4,HR
+2,Nepal
+3,US
