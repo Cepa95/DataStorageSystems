@@ -1,0 +1,10 @@
+Kreirati bazu podataka s 10tak tablica
+Napuniti je podacima 
+Kreirati skladište podataka s jednom činjeničnom tablicom i najmanje 4 dimenzije
+Jedna od dimenzija bi trebala biti dimDate ili dimDateTime
+Dimenzijske tablice trebaju imati surogatne ključeve
+Napuniti programski dimenziju vremena
+Za jednu od dimenzija implementirati praćenje promjena preko Slowly Change Dimension,(predvidjeti oba tipa- SCD tip 1 i SCD tip 2).
+Za jednu od dimenzija kreirati SSIS paket za punjenje s podacima iz dvije ili tri tablici preko MergeJoin. Paket treba podržavati i inkrementalni load.
+Napraviti paket koji puni činjeničnu tablicu a uz pomoć lookup-a pronalazi surogatne ključeve
+Kreirati dva upita za prikaz agregiranih podataka iz skladišta
