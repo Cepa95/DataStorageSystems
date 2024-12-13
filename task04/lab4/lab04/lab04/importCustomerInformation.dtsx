@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-QK31S74"
   DTS:CreatorName="DESKTOP-QK31S74\Josip Čeprnić"
-  DTS:DTSID="{CAFC3ABC-3D8D-4D44-A71D-1B24440716B6}"
+  DTS:DTSID="{CD7C07DA-18EF-4B2A-90FB-F43347FAAE76}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5685.0"
   DTS:LocaleID="3081"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="importCustomerInformation"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{B482592C-E512-4052-A27E-5E4F3F8C032B}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{68827935-9544-44DE-8142-E19A494F2128}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -50,16 +50,16 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="PersonID"
-              DTS:DTSID="{99F88D3B-7B61-45F3-9710-1E4966A31DA1}"
+              DTS:DTSID="{4CD47586-46D9-4A81-8953-FA92E29D9100}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="30"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="EnglishEducation"
-              DTS:DTSID="{08507412-7CFE-41A6-9374-563AB6B1ED30}"
+              DTS:DTSID="{E9453D87-970F-4151-B1EC-12E524567D6C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -68,34 +68,33 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="EnglishOccupation"
-              DTS:DTSID="{68052F8A-7970-4521-9E79-C5CF47F0FAE8}"
+              DTS:DTSID="{1FAEB0BA-F945-4A08-8770-8A03F7C1CBFF}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="130"
+              DTS:DataType="7"
               DTS:TextQualified="True"
               DTS:ObjectName="BirthDate"
-              DTS:DTSID="{AFB168B5-14D5-45A0-A44F-456A68CC2A10}"
+              DTS:DTSID="{D7D4DBCE-B9C4-4E68-9723-27E38102DD11}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="Gender"
-              DTS:DTSID="{A45EE061-1649-423D-AE9F-42D83780310A}"
+              DTS:DTSID="{EB41098F-8EF6-436F-BDCA-7C7451BE32F5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="5"
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="MaritalStatus"
-              DTS:DTSID="{86F81EC1-9E77-4DBD-921A-57696C952C74}"
+              DTS:DTSID="{F3182A76-4C65-4A59-B90E-B3D19E7E3FA5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -104,7 +103,7 @@
               DTS:DataType="130"
               DTS:TextQualified="True"
               DTS:ObjectName="EmailAddress"
-              DTS:DTSID="{1FFE5E03-1AAD-4246-AB94-8138F48D6262}"
+              DTS:DTSID="{B60A63BA-6D1A-4889-9524-22DE413493BE}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -128,12 +127,12 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\Flat File Source"
+              refId="Package\Data Flow Task\CustomerInformation"
               componentClassID="Microsoft.FlatFileSource"
               contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Flat File Source"
               localeId="3081"
-              name="Flat File Source"
+              name="CustomerInformation"
               usesDispositions="true"
               version="1">
               <properties>
@@ -148,23 +147,24 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
+                  refId="Package\Data Flow Task\CustomerInformation.Connections[FlatFileConnection]"
                   connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
                   connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
                   name="FlatFileConnection" />
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
+                  refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output]"
                   name="Flat File Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[PersonID]"
-                      dataType="i4"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[PersonID]"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[PersonID]"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[PersonID]"
                       name="PersonID"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -179,13 +179,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishEducation]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EnglishEducation]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishEducation]"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[EnglishEducation]"
                       length="30"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishEducation]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EnglishEducation]"
                       name="EnglishEducation"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -200,13 +200,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishOccupation]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EnglishOccupation]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishOccupation]"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[EnglishOccupation]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishOccupation]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EnglishOccupation]"
                       name="EnglishOccupation"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -221,12 +221,12 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[BirthDate]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[BirthDate]"
                       dataType="date"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[BirthDate]"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[BirthDate]"
                       name="BirthDate"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -241,13 +241,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[Gender]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[Gender]"
                       length="5"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[Gender]"
                       name="Gender"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -262,13 +262,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[MaritalStatus]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
                       length="5"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[MaritalStatus]"
                       name="MaritalStatus"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -283,13 +283,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EmailAddress]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                      externalMetadataColumnId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EmailAddress]"
                       name="EmailAddress"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -307,63 +307,62 @@
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[PersonID]"
                       dataType="wstr"
                       length="50"
                       name="PersonID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishEducation]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[EnglishEducation]"
                       dataType="wstr"
-                      length="50"
+                      length="30"
                       name="EnglishEducation" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EnglishOccupation]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[EnglishOccupation]"
                       dataType="wstr"
                       length="50"
                       name="EnglishOccupation" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
-                      dataType="wstr"
-                      length="50"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[BirthDate]"
+                      dataType="date"
                       name="BirthDate" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[Gender]"
                       dataType="wstr"
-                      length="50"
+                      length="5"
                       name="Gender" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[MaritalStatus]"
                       dataType="wstr"
-                      length="50"
+                      length="5"
                       name="MaritalStatus" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].ExternalColumns[EmailAddress]"
                       dataType="wstr"
                       length="50"
                       name="EmailAddress" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
+                  refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Error Output]"
                   isErrorOut="true"
                   name="Flat File Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       dataType="nText"
                       description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
                       name="Flat File Source Error Output Column" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -422,51 +421,52 @@
                   <inputColumns>
                     <inputColumn
                       refId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].Columns[PersonID]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="PersonID"
                       externalMetadataColumnId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].ExternalColumns[PersonID]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[PersonID]" />
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[PersonID]" />
                     <inputColumn
                       refId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].Columns[EnglishEducation]"
                       cachedDataType="wstr"
                       cachedLength="30"
                       cachedName="EnglishEducation"
                       externalMetadataColumnId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].ExternalColumns[EnglishEducation]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishEducation]" />
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EnglishEducation]" />
                     <inputColumn
                       refId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].Columns[EnglishOccupation]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="EnglishOccupation"
                       externalMetadataColumnId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].ExternalColumns[EnglishOccupation]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EnglishOccupation]" />
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EnglishOccupation]" />
                     <inputColumn
                       refId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].Columns[BirthDate]"
                       cachedDataType="date"
                       cachedName="BirthDate"
                       externalMetadataColumnId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].ExternalColumns[BirthDate]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[BirthDate]" />
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[BirthDate]" />
                     <inputColumn
                       refId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].Columns[Gender]"
                       cachedDataType="wstr"
                       cachedLength="5"
                       cachedName="Gender"
                       externalMetadataColumnId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].ExternalColumns[Gender]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]" />
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[Gender]" />
                     <inputColumn
                       refId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].Columns[MaritalStatus]"
                       cachedDataType="wstr"
                       cachedLength="5"
                       cachedName="MaritalStatus"
                       externalMetadataColumnId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].ExternalColumns[MaritalStatus]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[MaritalStatus]" />
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[MaritalStatus]" />
                     <inputColumn
                       refId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].Columns[EmailAddress]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="EmailAddress"
                       externalMetadataColumnId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input].ExternalColumns[EmailAddress]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[EmailAddress]" />
+                      lineageId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output].Columns[EmailAddress]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -538,9 +538,26 @@
               refId="Package\Data Flow Task.Paths[Flat File Source Output]"
               endId="Package\Data Flow Task\stgCustomerInformation.Inputs[ADO NET Destination Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+              startId="Package\Data Flow Task\CustomerInformation.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1131AA11-14C5-487B-B3A0-D63D788A381C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DEBC3669-7D2C-4A9F-AB6E-9F0825D2F01F}"
+          SQLTask:SqlStatementSource="UPDATE C&#xA;SET&#xA;FullName = U.FullName,&#xA;EmailAddress = U.EmailAddress&#xA;FROM dbo.Customers AS C&#xA;INNER JOIN dbo.UpdateCustomers AS U ON U.CustomerKey = C.CustomerKey;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -570,6 +587,14 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
       DTS:To="Package\Data Flow Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5607D904-7662-414F-B8C1-BA4B69756D44}"
+      DTS:From="Package\Data Flow Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Execute SQL Task" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -582,41 +607,79 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Data Flow Task"
-          TopLeft="280.000000596047,308.176470318106" />
+          TopLeft="89.2857144757806,110.882352843983" />
         <NodeLayout
           Size="232.8,41.6"
           Id="Package\truncateStgCustomerInformation"
-          TopLeft="142.142857445442,130.764705767733" />
+          TopLeft="17.857142895156,26.764705858893" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="258.542857445442,172.364705767733">
+          TopLeft="134.257142895156,68.364705858893">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="96.657143150605,135.811764550374"
+              EndConnector="30.2285715806245,42.51764698509"
               Start="0,0"
-              End="96.657143150605,128.311764550374">
+              End="30.2285715806245,35.01764698509">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,63.9058822751868" />
+                    End="0,17.258823492545" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,63.9058822751868"
-                    Point2="0,67.9058822751868"
-                    Point3="4,67.9058822751868" />
+                    Point1="0,17.258823492545"
+                    Point2="0,21.258823492545"
+                    Point3="4,21.258823492545" />
                   <mssgle:LineSegment
-                    End="92.657143150605,67.9058822751868" />
+                    End="26.2285715806245,21.258823492545" />
                   <mssgle:CubicBezierSegment
-                    Point1="92.657143150605,67.9058822751868"
-                    Point2="96.657143150605,67.9058822751868"
-                    Point3="96.657143150605,71.9058822751868" />
+                    Point1="26.2285715806245,21.258823492545"
+                    Point2="30.2285715806245,21.258823492545"
+                    Point3="30.2285715806245,25.258823492545" />
                   <mssgle:LineSegment
-                    End="96.657143150605,128.311764550374" />
+                    End="30.2285715806245,35.01764698509" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="175.000000372529,200.352941000853" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="164.485714475781,152.482352843983">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="91.7142858967484,47.8705881568704"
+              Start="0,0"
+              End="91.7142858967484,40.3705881568704">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9352940784352" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.9352940784352"
+                    Point2="0,23.9352940784352"
+                    Point3="4,23.9352940784352" />
+                  <mssgle:LineSegment
+                    End="87.7142858967484,23.9352940784352" />
+                  <mssgle:CubicBezierSegment
+                    Point1="87.7142858967484,23.9352940784352"
+                    Point2="91.7142858967484,23.9352940784352"
+                    Point3="91.7142858967484,27.9352940784352" />
+                  <mssgle:LineSegment
+                    End="91.7142858967484,40.3705881568704" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -638,35 +701,35 @@
           Id="Package\Data Flow Task\stgCustomerInformation"
           TopLeft="460.000000979219,220.999999806285" />
         <NodeLayout
-          Size="150.4,41.6"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="301.428572070234,86.4117646301391" />
+          Size="178.4,41.6"
+          Id="Package\Data Flow Task\CustomerInformation"
+          TopLeft="301.428572070234,85.6470587484564" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="376.628572070234,128.011764630139">
+          TopLeft="390.628572070234,127.247058748456">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="179.771428908985,92.9882351761459"
+              EndConnector="165.771428908985,93.7529410578286"
               Start="0,0"
-              End="179.771428908985,85.4882351761459">
+              End="165.771428908985,86.2529410578286">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,42.494117588073" />
+                    End="0,42.8764705289143" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,42.494117588073"
-                    Point2="0,46.494117588073"
-                    Point3="4,46.494117588073" />
+                    Point1="0,42.8764705289143"
+                    Point2="0,46.8764705289143"
+                    Point3="4,46.8764705289143" />
                   <mssgle:LineSegment
-                    End="175.771428908985,46.494117588073" />
+                    End="161.771428908985,46.8764705289143" />
                   <mssgle:CubicBezierSegment
-                    Point1="175.771428908985,46.494117588073"
-                    Point2="179.771428908985,46.494117588073"
-                    Point3="179.771428908985,50.494117588073" />
+                    Point1="161.771428908985,46.8764705289143"
+                    Point2="165.771428908985,46.8764705289143"
+                    Point3="165.771428908985,50.8764705289143" />
                   <mssgle:LineSegment
-                    End="179.771428908985,85.4882351761459" />
+                    End="165.771428908985,86.2529410578286" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
