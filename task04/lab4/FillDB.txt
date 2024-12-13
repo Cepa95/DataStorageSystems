@@ -1,0 +1,62 @@
+use [LabDW]
+go
+INSERT INTO dbo.Customers
+(CustomerDwKey, CustomerKey, FullName,
+EmailAddress, Birthdate, MaritalStatus,
+Gender, Education, Occupation,
+City, StateProvince, CountryRegion)
+SELECT
+NEXT VALUE FOR dbo.SeqCustomerDwKey AS CustomerDwKey,
+C.CustomerKey,
+C.FirstName + ' ' + C.LastName AS FullName,
+C.EmailAddress, C.BirthDate, C.MaritalStatus,
+C.Gender, C.EnglishEducation, C.EnglishOccupation,
+G.City, G.StateProvinceName, G.EnglishCountryRegionName
+FROM AdventureWorksdw2019.dbo.DimCustomer AS C
+INNER JOIN AdventureWorksdw2019.dbo.DimGeography AS G
+ON C.GeographyKey = G.GeographyKey;
+GO
+
+INSERT INTO dbo.Products
+(ProductKey, ProductName, Color,
+Size, SubcategoryName, CategoryName)
+SELECT P.ProductKey, P.EnglishProductName, P.Color,
+P.Size, S.EnglishProductSubcategoryName, C.EnglishProductCategoryName
+FROM AdventureWorksdw2019.dbo.DimProduct AS P
+INNER JOIN AdventureWorksdw2019.dbo.DimProductSubcategory AS S
+ON P.ProductSubcategoryKey = S.ProductSubcategoryKey
+INNER JOIN AdventureWorksdw2019.dbo.DimProductCategory AS C
+ON S.ProductCategoryKey = C.ProductCategoryKey;
+GO
+
+INSERT INTO dbo.Dates
+(DateKey, FullDate, MonthNumberName,
+CalendarQuarter, CalendarYear)
+SELECT DateKey, FullDateAlternateKey,
+SUBSTRING(CONVERT(CHAR(8), FullDateAlternateKey, 112), 5, 2)
++ ' ' + EnglishMonthName,
+CalendarQuarter, CalendarYear
+FROM AdventureWorksdw2019.dbo.DimDate;
+
+INSERT INTO dbo.InternetSales
+(CustomerDwKey, ProductKey, DateKey,
+OrderQuantity, SalesAmount,
+UnitPrice, DiscountAmount)
+SELECT C.CustomerDwKey,
+FIS.ProductKey, FIS.OrderDateKey,
+FIS.OrderQuantity, FIS.SalesAmount,
+FIS.UnitPrice, FIS.DiscountAmount
+FROM AdventureWorksdw2019.dbo.FactInternetSales AS FIS
+INNER JOIN dbo.Customers AS C
+ON FIS.CustomerKey = C.CustomerKey;
+GO
+
+----- provjera kompresije
+EXEC sp_spaceused N'dbo.InternetSales', @updateusage = N'TRUE';
+GO
+ALTER TABLE dbo.InternetSales
+REBUILD WITH (DATA_COMPRESSION = PAGE);
+GO
+3. Measure the reserved space again.
+EXEC sp_spaceused N'dbo.InternetSales', @updateusage = N'TRUE';
+
