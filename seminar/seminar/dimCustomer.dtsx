@@ -11,8 +11,8 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="dimCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{500B7344-6E22-4537-BC50-1F8A70BACC22}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{CFA95A3A-E290-4F5E-8D3E-525F18A176BD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -230,7 +230,21 @@
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP (1000) 
+    [CustomerID],
+    [FirstName],
+    [LastName],
+    [Email],
+    [Phone],
+    [Street],
+    [City],
+    [State],
+    [ZipCode],
+    [RoleID]
+FROM 
+    [ElectronicsStore].[dbo].[Customers]
+ORDER BY 
+    [CustomerID];</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -264,6 +278,7 @@
               <outputs>
                 <output
                   refId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output]"
+                  isSorted="true"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
@@ -314,6 +329,16 @@
                       length="100"
                       lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[State]"
                       name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[RoleID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].ExternalColumns[RoleID]"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[RoleID]"
+                      name="RoleID"
+                      sortKeyPosition="1"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -412,6 +437,140 @@
                       refId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Error Output].Columns[RoleID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Error Output].Columns[RoleID]"
+                      name="RoleID" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\ImportRoles"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ImportRoles"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Roles]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\ImportRoles.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-QK31S74.ElectronicsStore]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-QK31S74.ElectronicsStore]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].Columns[RoleID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].ExternalColumns[RoleID]"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].Columns[RoleID]"
+                      name="RoleID"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].Columns[RoleName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].ExternalColumns[RoleName]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].Columns[RoleName]"
+                      name="RoleName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].ExternalColumns[RoleID]"
+                      dataType="i4"
+                      name="RoleID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].ExternalColumns[RoleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="RoleName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[RoleID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[RoleID]"
+                      name="RoleID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[RoleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[RoleName]"
+                      name="RoleName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -531,6 +690,13 @@
                       cachedName="IsNew"
                       externalMetadataColumnId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[IsNew]"
                       lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[IsNew]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].Columns[RoleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RoleName"
+                      externalMetadataColumnId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[RoleName]"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[RoleName]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -545,27 +711,32 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
                       dataType="wstr"
-                      length="255"
+                      length="50"
                       name="FirstName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
                       dataType="wstr"
-                      length="255"
+                      length="50"
                       name="LastName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
                       dataType="wstr"
-                      length="255"
+                      length="100"
                       name="Email" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[State]"
                       dataType="wstr"
-                      length="255"
+                      length="100"
                       name="State" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[IsNew]"
                       dataType="bool"
                       name="IsNew" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\InsertCustomers.Inputs[OLE DB Destination Input].ExternalColumns[RoleName]"
+                      dataType="wstr"
+                      length="50"
+                      name="RoleName" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -589,6 +760,190 @@
                       lineageId="Package\Data Flow Task\InsertCustomers.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[RoleID]"
+                      cachedDataType="i4"
+                      cachedName="RoleID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].Columns[RoleID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[RoleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RoleName"
+                      lineageId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output].Columns[RoleName]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[CustomerID]"
+                      cachedDataType="i4"
+                      cachedName="CustomerID"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[FirstName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="FirstName"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[LastName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="LastName"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Email]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Email"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[Email]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="State"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[RoleID]"
+                      cachedDataType="i4"
+                      cachedName="RoleID"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[RoleID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CustomerID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CustomerID]"
+                      name="CustomerID">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[CustomerID]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FirstName]"
+                      name="FirstName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[FirstName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[LastName]"
+                      name="LastName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[LastName]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Email]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Email]"
+                      name="Email">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[Email]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[State]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[State]"
+                      name="State">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[State]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[RoleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[RoleName]"
+                      name="RoleName">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[RoleName]}</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -639,7 +994,7 @@
                       cachedDataType="i4"
                       cachedName="CustomerID"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CustomerID]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].Columns[IsNew]"
                       cachedDataType="bool"
@@ -724,7 +1079,7 @@
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dimCustomer] SET [Email] = ?,[FirstName] = ?,[LastName] = ? WHERE [CustomerID] = ? AND [IsNew] = '1'</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[dimCustomer] SET [Email] = ?,[FirstName] = ?,[LastName] = ?,[RoleName] = ? WHERE [CustomerID] = ? AND [IsNew] = '1'</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -750,29 +1105,36 @@
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[CustomerID]"
                       cachedDataType="i4"
                       cachedName="CustomerID"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[CustomerID]" />
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CustomerID]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Email]"
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Email"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[Email]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Email]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[FirstName]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="FirstName"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[FirstName]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FirstName]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[LastName]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="LastName"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[LastName]" />
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[LastName]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[RoleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RoleName"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[RoleName]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -814,8 +1176,20 @@
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="i4"
+                      dataType="wstr"
+                      length="10"
                       name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -870,7 +1244,7 @@
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CustomerID], [Email], [FirstName], [LastName], [State],[IsNew] FROM [dbo].[dimCustomer]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [CustomerID], [Email], [FirstName], [LastName], [RoleName], [State],[IsNew] FROM [dbo].[dimCustomer]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -923,7 +1297,7 @@
                       cachedDataType="i4"
                       cachedName="CustomerID"
                       externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[CustomerID]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[CustomerID]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CustomerID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -937,7 +1311,7 @@
                       cachedLength="100"
                       cachedName="Email"
                       externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Email]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[Email]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Email]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -951,7 +1325,7 @@
                       cachedLength="50"
                       cachedName="FirstName"
                       externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[FirstName]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[FirstName]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FirstName]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -965,7 +1339,21 @@
                       cachedLength="50"
                       cachedName="LastName"
                       externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[LastName]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[LastName]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[LastName]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          name="ColumnType"
+                          typeConverter="ColumnType">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[RoleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RoleName"
+                      externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RoleName]"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[RoleName]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -979,7 +1367,7 @@
                       cachedLength="100"
                       cachedName="State"
                       externalMetadataColumnId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[State]"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[State]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[State]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -1009,6 +1397,11 @@
                       dataType="wstr"
                       length="255"
                       name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RoleName]"
+                      dataType="wstr"
+                      length="10"
+                      name="RoleName" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[State]"
                       dataType="wstr"
@@ -1088,7 +1481,7 @@
                       refId="Package\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[CustomerID]"
                       cachedDataType="i4"
                       cachedName="CustomerID"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[CustomerID]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CustomerID]">
                       <properties>
                         <property
                           containsID="true"
@@ -1102,7 +1495,7 @@
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="FirstName"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[FirstName]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FirstName]">
                       <properties>
                         <property
                           containsID="true"
@@ -1116,7 +1509,7 @@
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="LastName"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[LastName]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[LastName]">
                       <properties>
                         <property
                           containsID="true"
@@ -1130,7 +1523,7 @@
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Email"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[Email]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Email]">
                       <properties>
                         <property
                           containsID="true"
@@ -1144,13 +1537,27 @@
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="State"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[State]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[State]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[State]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 1].Columns[RoleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RoleName"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[RoleName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[RoleName]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1165,7 +1572,7 @@
                       refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[CustomerID]"
                       cachedDataType="i4"
                       cachedName="CustomerID"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[CustomerID]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CustomerID]">
                       <properties>
                         <property
                           containsID="true"
@@ -1179,7 +1586,7 @@
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="FirstName"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[FirstName]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[FirstName]">
                       <properties>
                         <property
                           containsID="true"
@@ -1193,7 +1600,7 @@
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="LastName"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[LastName]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[LastName]">
                       <properties>
                         <property
                           containsID="true"
@@ -1207,7 +1614,7 @@
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="Email"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[Email]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[Email]">
                       <properties>
                         <property
                           containsID="true"
@@ -1221,13 +1628,27 @@
                       cachedDataType="wstr"
                       cachedLength="100"
                       cachedName="State"
-                      lineageId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output].Columns[State]">
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[State]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
                           name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[State]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Union All.Inputs[Union All Input 2].Columns[RoleName]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="RoleName"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[RoleName]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[RoleName]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1275,6 +1696,12 @@
                       length="100"
                       lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[State]"
                       name="State" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[RoleName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Union All.Outputs[Union All Output 1].Columns[RoleName]"
+                      name="RoleName" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -1303,6 +1730,11 @@
               name="Historical Attribute Inserts Output"
               startId="Package\Data Flow Task\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
             <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+            <path
               refId="Package\Data Flow Task.Paths[New Output]"
               endId="Package\Data Flow Task\Union All.Inputs[Union All Input 1]"
               name="New Output"
@@ -1314,9 +1746,14 @@
               startId="Package\Data Flow Task\OLE DB Command.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
               name="OLE DB Source Output"
               startId="Package\Data Flow Task\importCustomers.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\ImportRoles.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Union All Output 1]"
               endId="Package\Data Flow Task\Derived Column 1.Inputs[Derived Column Input]"
@@ -1350,18 +1787,56 @@
     design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="158.4,41.6"
-          Id="Package\Data Flow Task\importCustomers"
-          TopLeft="222.5,5.49999999999995" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="208,41.6"
           Id="Package\Data Flow Task\Slowly Changing Dimension"
-          TopLeft="197.7,107.1" />
+          TopLeft="199.5,208.7" />
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Data Flow Task\importCustomers"
+          TopLeft="16.3,5.49999999999995" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="238.7,107.1" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="301.7,47.1">
+          TopLeft="95.5,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="187.733333333333,59.9999999999999"
+              Start="0,0"
+              End="187.733333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.560975609756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.560975609756"
+                    Point2="0,35.560975609756"
+                    Point3="4,35.560975609756" />
+                  <mssgle:LineSegment
+                    End="183.733333333333,35.560975609756" />
+                  <mssgle:CubicBezierSegment
+                    Point1="183.733333333333,35.560975609756"
+                    Point2="187.733333333333,35.560975609756"
+                    Point3="187.733333333333,39.560975609756" />
+                  <mssgle:LineSegment
+                    End="187.733333333333,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="303.5,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1382,12 +1857,50 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
+          Size="136,41.6"
+          Id="Package\Data Flow Task\ImportRoles"
+          TopLeft="472.642857647672,6.2647058816826" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="540.642857647672,47.8647058816826">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-216.876190981005,59.2352941183173"
+              Start="0,0"
+              End="-216.876190981005,51.7352941183173">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1077474896368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.1077474896368"
+                    Point2="0,35.1077474896368"
+                    Point3="-4,35.1077474896368" />
+                  <mssgle:LineSegment
+                    End="-212.876190981005,35.1077474896368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-212.876190981005,35.1077474896368"
+                    Point2="-216.876190981005,35.1077474896368"
+                    Point3="-216.876190981005,39.1077474896368" />
+                  <mssgle:LineSegment
+                    End="-216.876190981005,51.7352941183173" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
           Size="152.8,41.6"
           Id="Package\Data Flow Task\Derived Column"
-          TopLeft="88.3,208.7" />
+          TopLeft="90.1000000000001,310.3" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Historical Attribute Inserts Output]"
-          TopLeft="251.7,148.7">
+          TopLeft="253.5,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1424,10 +1937,10 @@
         <NodeLayout
           Size="164.8,41.6"
           Id="Package\Data Flow Task\OLE DB Command"
-          TopLeft="76.3,310.3" />
+          TopLeft="78.1000000000001,411.9" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
-          TopLeft="161.7,250.3">
+          TopLeft="163.5,351.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1450,16 +1963,16 @@
         <NodeLayout
           Size="120,41.6"
           Id="Package\Data Flow Task\Union All"
-          TopLeft="241.7,411.9" />
+          TopLeft="243.5,513.5" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[New Output]"
-          TopLeft="301.7,148.7">
+          TopLeft="303.5,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.6666666666666,263.2"
+              EndConnector="18.6666666666667,263.2"
               Start="0,0"
-              End="18.6666666666666,255.7">
+              End="18.6666666666667,255.7">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1470,13 +1983,13 @@
                     Point2="0,155.842105263158"
                     Point3="4,155.842105263158" />
                   <mssgle:LineSegment
-                    End="14.6666666666666,155.842105263158" />
+                    End="14.6666666666667,155.842105263158" />
                   <mssgle:CubicBezierSegment
-                    Point1="14.6666666666666,155.842105263158"
-                    Point2="18.6666666666666,155.842105263158"
-                    Point3="18.6666666666666,159.842105263158" />
+                    Point1="14.6666666666667,155.842105263158"
+                    Point2="18.6666666666667,155.842105263158"
+                    Point3="18.6666666666667,159.842105263158" />
                   <mssgle:LineSegment
-                    End="18.6666666666666,255.7" />
+                    End="18.6666666666667,255.7" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1489,7 +2002,7 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Command Output]"
-          TopLeft="158.7,351.9">
+          TopLeft="160.5,453.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1500,17 +2013,17 @@
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5263157894736" />
+                    End="0,31.5263157894737" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.5263157894736"
-                    Point2="0,35.5263157894736"
-                    Point3="4,35.5263157894736" />
+                    Point1="0,31.5263157894737"
+                    Point2="0,35.5263157894737"
+                    Point3="4,35.5263157894737" />
                   <mssgle:LineSegment
-                    End="120.333333333333,35.5263157894736" />
+                    End="120.333333333333,35.5263157894737" />
                   <mssgle:CubicBezierSegment
-                    Point1="120.333333333333,35.5263157894736"
-                    Point2="124.333333333333,35.5263157894736"
-                    Point3="124.333333333333,39.5263157894736" />
+                    Point1="120.333333333333,35.5263157894737"
+                    Point2="124.333333333333,35.5263157894737"
+                    Point3="124.333333333333,39.5263157894737" />
                   <mssgle:LineSegment
                     End="124.333333333333,52.4999999999999" />
                 </mssgle:SegmentCollection>
@@ -1524,10 +2037,10 @@
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Data Flow Task\Derived Column 1"
-          TopLeft="220.5,513.5" />
+          TopLeft="222.3,615.099999999999" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Union All Output 1]"
-          TopLeft="301.7,453.5">
+          TopLeft="303.5,555.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1550,10 +2063,10 @@
         <NodeLayout
           Size="156,41.6"
           Id="Package\Data Flow Task\InsertCustomers"
-          TopLeft="220.5,615.099999999999" />
+          TopLeft="222.3,716.699999999999" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output1]"
-          TopLeft="300.1,555.1">
+          TopLeft="301.9,656.699999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1576,10 +2089,10 @@
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Data Flow Task\OLE DB Command 1"
-          TopLeft="362.5,208.7" />
+          TopLeft="364.3,310.3" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Changing Attribute Updates Output]"
-          TopLeft="351.7,148.7">
+          TopLeft="353.5,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1617,19 +2130,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\importCustomers">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Slowly Changing Dimension">
     <Properties>
       <Property>
@@ -1641,31 +2141,37 @@
   &lt;TableName&gt;[dbo].[dimCustomer]&lt;/TableName&gt;
   &lt;InputToColumnsCollection&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;importCustomers.Outputs[OLE DB Source Output].Columns[CustomerID]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Merge Join.Outputs[Merge Join Output].Columns[CustomerID]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;CustomerID&lt;/ColumnName&gt;
       &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
       &lt;ChangeType&gt;None&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;importCustomers.Outputs[OLE DB Source Output].Columns[Email]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Merge Join.Outputs[Merge Join Output].Columns[Email]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;Email&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;importCustomers.Outputs[OLE DB Source Output].Columns[FirstName]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Merge Join.Outputs[Merge Join Output].Columns[FirstName]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;FirstName&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;importCustomers.Outputs[OLE DB Source Output].Columns[LastName]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Merge Join.Outputs[Merge Join Output].Columns[LastName]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;LastName&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;importCustomers.Outputs[OLE DB Source Output].Columns[State]&lt;/IdentificationString&gt;
+      &lt;IdentificationString&gt;Merge Join.Outputs[Merge Join Output].Columns[RoleName]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;RoleName&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;Merge Join.Outputs[Merge Join Output].Columns[State]&lt;/IdentificationString&gt;
       &lt;ColumnName&gt;State&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
@@ -1691,6 +2197,45 @@
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\importCustomers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\ImportRoles">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\InsertCustomers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

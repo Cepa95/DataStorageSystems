@@ -7,17 +7,19 @@ GO
 CREATE TABLE dimCustomer (
     CustomerKey INT IDENTITY(1,1) PRIMARY KEY,
     CustomerID INT,
-    FirstName NVARCHAR(255),
-    LastName NVARCHAR(255),
-    Email NVARCHAR(255),
-    State NVARCHAR(255),
+    FirstName NVARCHAR(50),
+    LastName NVARCHAR(50),
+    Email NVARCHAR(100),
+    State NVARCHAR(100),
+    RoleName NVARCHAR(50),
+
     IsNew BIT
 );
 
 CREATE TABLE dimDeliveryMethod (
     DeliveryMethodKey INT IDENTITY(1,1) PRIMARY KEY,
     DeliveryMethodID INT,
-    DeliveryMethodName NVARCHAR(255)
+    DeliveryMethodName NVARCHAR(100)
 );
 
 CREATE TABLE dimDate (
@@ -32,7 +34,7 @@ CREATE TABLE dimDate (
 CREATE TABLE dimOrderStatus (
     OrderStatusKey INT IDENTITY(1,1) PRIMARY KEY,
     OrderStatusID INT,
-    StatusName NVARCHAR(255)
+    StatusName NVARCHAR(50)
 );
 
 CREATE TABLE factOrders (
