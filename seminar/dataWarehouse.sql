@@ -10,7 +10,8 @@ CREATE TABLE dimCustomer (
     FirstName NVARCHAR(255),
     LastName NVARCHAR(255),
     Email NVARCHAR(255),
-    State NVARCHAR(255)
+    State NVARCHAR(255),
+    IsNew BIT
 );
 
 CREATE TABLE dimDeliveryMethod (
@@ -40,6 +41,7 @@ CREATE TABLE factOrders (
     CustomerKey INT,
     DeliveryMethodKey INT,
     OrderStatusKey INT,
+    OrderId INT,
     TotalAmount DECIMAL(18,2),
     FOREIGN KEY (DateKey) REFERENCES dimDate(DateKey),
     FOREIGN KEY (CustomerKey) REFERENCES dimCustomer(CustomerKey),
