@@ -11,8 +11,8 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{A5F27644-0668-4F18-8623-23A982337DDE}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{AF060986-7D1E-4EFB-90E5-1D9D6A515473}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -349,7 +349,7 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\insertDeliveryMethods.Inputs[OLE DB Destination Input].ExternalColumns[DeliveryMethodName]"
                       dataType="wstr"
-                      length="255"
+                      length="100"
                       name="DeliveryMethodName" />
                   </externalMetadataColumns>
                 </input>
@@ -438,7 +438,7 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       dataType="wstr"
-                      length="255"
+                      length="100"
                       name="Param_0">
                       <properties>
                         <property
@@ -693,6 +693,14 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Data Flow Task\OLE DB Command"
+          TopLeft="228.3,208.7" />
+        <NodeLayout
+          Size="182.4,41.6"
+          Id="Package\Data Flow Task\insertDeliveryMethods"
+          TopLeft="5.50000000000004,208.7" />
+        <NodeLayout
           Size="186.4,41.6"
           Id="Package\Data Flow Task\importDeliveryMethods"
           TopLeft="217.5,5.49999999999995" />
@@ -722,10 +730,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="182.4,41.6"
-          Id="Package\Data Flow Task\insertDeliveryMethods"
-          TopLeft="5.50000000000004,208.7" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[New Output]"
           TopLeft="277.366666666667,148.7">
@@ -762,10 +766,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Data Flow Task\OLE DB Command"
-          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Changing Attribute Updates Output]"
           TopLeft="344.033333333333,148.7">
@@ -805,6 +805,19 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\insertDeliveryMethods">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\importDeliveryMethods">
     <Properties>

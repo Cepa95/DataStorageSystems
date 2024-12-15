@@ -11,8 +11,8 @@
   DTS:LocaleID="3081"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{8D523BEF-E368-4DBC-9504-8847BC91E8A4}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{925B9398-220A-4995-91B3-FC58961C2066}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -283,7 +283,7 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\insertOrderStatus.Inputs[OLE DB Destination Input].ExternalColumns[StatusName]"
                       dataType="wstr"
-                      length="255"
+                      length="50"
                       name="StatusName" />
                   </externalMetadataColumns>
                 </input>
@@ -372,7 +372,7 @@
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       dataType="wstr"
-                      length="255"
+                      length="50"
                       name="Param_0">
                       <properties>
                         <property
@@ -627,13 +627,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Data Flow Task\importOrderStatus"
-          TopLeft="449.5,5.49999999999984" />
-        <NodeLayout
           Size="208,41.6"
           Id="Package\Data Flow Task\Slowly Changing Dimension"
           TopLeft="427.9,107.1" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Data Flow Task\OLE DB Command"
+          TopLeft="449.5,208.7" />
+        <NodeLayout
+          Size="160.8,41.6"
+          Id="Package\Data Flow Task\insertOrderStatus"
+          TopLeft="226.7,208.7" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Data Flow Task\importOrderStatus"
+          TopLeft="449.5,5.49999999999984" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="531.9,47.0999999999998">
@@ -656,10 +664,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="160.8,41.6"
-          Id="Package\Data Flow Task\insertOrderStatus"
-          TopLeft="226.7,208.7" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[New Output]"
           TopLeft="498.566666666667,148.7">
@@ -696,10 +700,6 @@
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Data Flow Task\OLE DB Command"
-          TopLeft="449.5,208.7" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Changing Attribute Updates Output]"
           TopLeft="565.233333333333,148.7">
@@ -739,19 +739,6 @@
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\importOrderStatus">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Slowly Changing Dimension">
     <Properties>
@@ -797,6 +784,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\insertOrderStatus">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\importOrderStatus">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
